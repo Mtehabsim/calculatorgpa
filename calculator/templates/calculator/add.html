@@ -1,0 +1,188 @@
+{% extends "calculator/base.html"%}
+{%block content%}
+<a href="https://www.htu.edu.jo/">
+<img src="https://htu.edu.jo/images/allnews/HTU-Logo.png" alt="htu" width="120" height="120" >
+</a>
+    <form class = "hello"id="form" onsubmit="return false;">
+    <br><br><br>
+    <label >Choose a material and grade and check the box besides it:</label> <br>
+        <label >**NOTE: any material with empty check box will not be counted **</label><br>
+        <label >**NOTE: The name of the material doesn't matter, focus on the credit hours(Hrs), so you may dublicate the same material name  **</label>
+
+
+<!-- 1 -->
+    <ul >
+<li><select name="cars" id="material-chosen">
+    {%for material in object_list%}
+  <option value="{{material.title}}" >{{material.title}} -- {{material.hours}}Hrs</option>
+  {%endfor%}
+</select>
+    <select name="cars" id="grade-chosen">
+  <option value="D" >D</option>
+        <option value="M" >M</option>
+        <option value="P" >P</option>
+        <option value="U" >U</option>
+</select>
+    <input type="checkbox" id="installed1" name="installed1" value="installed1">
+</li>
+
+
+<!-- 2 --><li>
+<select name="cars" id="material1-chosen">
+    {%for material in object_list%}
+  <option value="{{material.title}}" >{{material.title}} -- {{material.hours}}Hrs</option>
+  {%endfor%}
+</select>
+    <select name="cars" id="grade1-chosen">
+  <option value="D" >D</option>
+        <option value="M" >M</option>
+        <option value="P" >P</option>
+        <option value="U" >U</option>
+</select>
+<input type="checkbox" id="installed2" name="installed2" value="installed2">
+</li>
+<!-- 3 --><li>
+<select name="cars" id="material2-chosen">
+    {%for material in object_list%}
+  <option value="{{material.title}}" >{{material.title}} -- {{material.hours}}Hrs</option>
+  {%endfor%}
+</select>
+    <select name="cars" id="grade2-chosen">
+  <option value="D" >D</option>
+        <option value="M" >M</option>
+        <option value="P" >P</option>
+        <option value="U" >U</option>
+</select>
+<input type="checkbox" id="installed3" name="installed3" value="installed3">
+</li>
+<!-- 4 --><li>
+<select name="cars" id="material3-chosen">
+    {%for material in object_list%}
+  <option value="{{material.title}}" >{{material.title}} -- {{material.hours}}Hrs</option>
+  {%endfor%}
+</select>
+    <select name="cars" id="grade3-chosen">
+  <option value="D" >D</option>
+        <option value="M" >M</option>
+        <option value="P" >P</option>
+        <option value="U" >U</option>
+</select>
+<input type="checkbox" id="installed4" name="installed4" value="installed4">
+</li>
+<!-- 5 --><li>
+<select name="cars" id="material4-chosen">
+    {%for material in object_list%}
+  <option value="{{material.title}}" >{{material.title}} -- {{material.hours}}Hrs</option>
+  {%endfor%}
+</select>
+    <select name="cars" id="grade4-chosen">
+  <option value="D" >D</option>
+        <option value="M" >M</option>
+        <option value="P" >P</option>
+        <option value="U" >U</option>
+</select>
+        <input type="checkbox" id="installed5" name="installed5" value="installed5">
+        </li>
+
+        <!-- 6 --><li>
+<select name="cars" id="material5-chosen">
+    {%for material in object_list%}
+  <option value="{{material.title}}" >{{material.title}} -- {{material.hours}}Hrs</option>
+  {%endfor%}
+</select>
+    <select name="cars" id="grade5-chosen">
+  <option value="D" >D</option>
+        <option value="M" >M</option>
+        <option value="P" >P</option>
+        <option value="U" >U</option>
+</select>
+        <input type="checkbox" id="installed6" name="installed6" value="installed6">
+        </li>
+
+        <!-- 7 --><li>
+<select name="cars" id="material6-chosen">
+    {%for material in object_list%}
+  <option value="{{material.title}}" >{{material.title}} -- {{material.hours}}Hrs</option>
+  {%endfor%}
+</select>
+    <select name="cars" id="grade6-chosen">
+  <option value="D" >D</option>
+        <option value="M" >M</option>
+        <option value="P" >P</option>
+        <option value="U" >U</option>
+</select>
+        <input type="checkbox" id="installed7" name="installed7" value="installed7">
+        </li>
+    </ul>
+  <input style="position:absolute; " type="submit" onclick="othername();" />
+
+</div>
+
+</form>
+
+<script>
+    function othername() {
+    var name1 = document.getElementById("material-chosen").value;
+    var grade1 = document.getElementById("grade-chosen").value;
+    var name2 = document.getElementById("material1-chosen").value;
+    var grade2 = document.getElementById("grade1-chosen").value;
+    var name3 = document.getElementById("material2-chosen").value;
+    var grade3 = document.getElementById("grade2-chosen").value;
+    var name4 = document.getElementById("material3-chosen").value;
+    var grade4 = document.getElementById("grade3-chosen").value;
+    var name5 = document.getElementById("material4-chosen").value;
+    var grade5 = document.getElementById("grade4-chosen").value;
+    var name6 = document.getElementById("material5-chosen").value;
+    var grade6 = document.getElementById("grade5-chosen").value;
+    var name7 = document.getElementById("material6-chosen").value;
+    var grade7 = document.getElementById("grade6-chosen").value;
+    hours = [1,2,3,4,5,6,7];
+    const name = [name1,name2,name3,name4,name5,name6,name7];
+    var totalhrs = 0;
+    grade = [grade1,grade2,grade3,grade4,grade5,grade6,grade7];
+
+    if(document.getElementById("installed1").checked == false){name[0] = 'no';
+    grade[0] = 0;}
+    if(document.getElementById("installed2").checked == false){name[1] = 'no';
+    grade[1] = 0;}
+    if(document.getElementById("installed3").checked == false){name[2] = 'no';
+    grade[2] = 0;}
+    if(document.getElementById("installed4").checked == false){name[3] = 'no';
+    grade[3] = 0;}
+    if(document.getElementById("installed5").checked == false){name[4] = 'no';
+    grade[4] = 0;}
+    if(document.getElementById("installed6").checked == false){name[5] = 'no';
+    grade[5] = 0;}
+    if(document.getElementById("installed7").checked == false){name[6] = 'no';
+    grade[6] = 0;}
+
+    for(let i = 0; i < 7; i++) {
+    {%for material in object_list %}
+    if('{{material.title}}' === name[i]){
+    hours[i] = {{material.hours}};
+    totalhrs = totalhrs + hours[i];
+    }
+    {%endfor%}
+    }
+
+
+    var num = 5.0;
+    var total = 0;
+    for(let j = 0; j < 7; j++) {
+        if(grade[j]==='D'){num = 4.0*hours[j];}
+        else if(grade[j]=='M'){num = 3.2* hours[j];}
+        else if(grade[j]=='P'){num = 2.4* hours[j];}
+        else if(grade[j]=='U'){num = 1.6* hours[j];}
+        else{num = 0;}
+        total = total + num;
+    }
+
+
+    alert("Your GPA is "+ total/totalhrs );
+}
+</script>
+
+    {%endblock%}
+
+</body>
+</html>
