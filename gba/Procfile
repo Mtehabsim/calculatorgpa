@@ -1,1 +1,1 @@
-web: gunicorn gba.wsgi
+web: gunicorn gba.wsgi --log-file=-
